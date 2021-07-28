@@ -11,7 +11,8 @@ SERVER_PID=$!
 ./scripts/judge.sh
 EXIT_CODE=$?
 
-kill $SERVER_PID
+echo "Shuting down server..."
+kill -9 $SERVER_PID
 echo "Server output:"
 cat $LOG
 
