@@ -19,22 +19,6 @@ fi
 echo "Done"
 
 
-echo "Judging get requests..."
-for i in $(seq 0 40); do
-  ./scripts/judge_get.sh
-
-  if [[ $? = 1 ]]; then
-    echo 1 > ./judge
-    exit 1
-  elif [[ $? = 2 ]]; then
-    STATUS_PASS=0
-  elif [[ $? = 3 ]]; then
-    SHA_PASS=0
-  fi
-  echo -n "."
-done
-echo "Done"
-
 echo "Judging post requests..."
 for i in $(seq 0 40); do
   ./scripts/judge_post.sh

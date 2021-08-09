@@ -20,8 +20,8 @@ function expect() {
 curl --max-time 60 -s -i http://localhost:1080/abcdefg 2>&1 | expect 404
 curl --max-time 60 -s -i http://localhost:1080 2>&1 | expect 404
 curl --max-time 60 -s -i http://localhost:1080/apiapiapi 2>&1 | expect 404
+curl --max-time 60 -s -i http://localhost:1080/api\?question_mark\=r 2>&1 | expect 404
 curl --max-time 60 -s -i http://localhost:1080/api/abcdefg 2>&1 | expect 404
+curl --max-time 60 -s -i http://localhost:1080/api 2>&1 | expect 405
 curl --max-time 60 -s -i -X HEAD http://localhost:1080/api 2>&1 | expect 405
 curl --max-time 60 -s -i -X OPTIONS http://localhost:1080/api 2>&1 | expect 405
-curl --max-time 60 -s -i http://localhost:1080/api 2>&1 | expect 400
-curl --max-time 60 -s -i http://localhost:1080/api\?random\=abc 2>&1 | expect 400
