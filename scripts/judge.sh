@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DN=$(dirname $(readlink -f $0))
-cd $DN
-cd ..
+SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
+DN="$(dirname "$SCRIPT_PATH")"
+cd "${DN}/../"
 
 STATUS_PASS=1
 SHA_PASS=1
