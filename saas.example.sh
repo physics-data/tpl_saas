@@ -1,37 +1,20 @@
 #!/bin/bash
 
-###############################################
-#
-#  Delete from here
-#
-###############################################
-
 echo "Sample SHA256 calculation" | sha256sum
-
-# Sample use of named pipe
-PIPENAME=$(mktemp -u)
-mkfifo -m 600 $PIPENAME
-echo "Sample SHA256 calculation" > $PIPENAME &
-sha256sum < $PIPENAME
 
 echo "--------"
 echo "Try: curl -I http://localhost:1080"
 echo "Also try: wget http://localhost:1080"
+echo "To test, use: curl -X POST --data 'string_here' http://localhost:1080/api"
 echo "Use Ctrl-C to terminate the server"
 echo "--------"
 
-###############################################
-#
-#  Delete until here
-#
-###############################################
-
-#
-# TODO: change to SHA256 as a Service server implementation
-#
 function accept {
-  read -r INPUT
-  >&2 echo "Got request, first line: $INPUT"
+  #
+  # TODO: change to SHA256 as a Service server implementation
+  #
+  read -r request_line
+  >&2 echo "Got request, first line: $request_line"
 
   echo -e "HTTP/1.1 404 Not Found\r\n\r" 
 }

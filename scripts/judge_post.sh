@@ -6,7 +6,7 @@ cd ..
 
 function gen_file() {
   FN=$(mktemp)
-  head -c 4096 < /dev/urandom > $FN
+  tr -c -d 'a-zA-Z0-9\n' < /dev/urandom | head -c 4096 > $FN
   echo $FN
 }
 
