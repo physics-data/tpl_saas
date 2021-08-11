@@ -47,4 +47,6 @@ while true; do
 
   # Named pipe loop
   nc -N -l 1080 < $FIFONAME | accept > $FIFONAME
+
+  rm $FIFONAME
 done
