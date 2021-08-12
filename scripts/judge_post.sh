@@ -6,7 +6,8 @@ cd "${DN}/../"
 
 function gen_file() {
   FN=$(mktemp)
-  tr -c -d 'a-zA-Z0-9\n' < /dev/urandom | head -c 4096 > $FN
+  len=$(( RANDOM % 4000 + 500 ))
+  tr -c -d 'a-zA-Z0-9\n' < /dev/urandom | head -c $len > $FN
   echo $FN
 }
 

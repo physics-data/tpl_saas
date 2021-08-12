@@ -19,6 +19,9 @@ function accept {
   echo -e "HTTP/1.1 404 Not Found\r\n\r" 
 }
 
+
+# DO NOT TOUCH ANY CODE BELOW!
+
 while true; do
 
   # Warning for Mac / Windows users:
@@ -27,9 +30,6 @@ while true; do
   # Check `man nc` for detail.
   FIFONAME=$(mktemp -u)
   mkfifo $FIFONAME
-
-  # Named pipe loop
   nc -N -l 1080 < $FIFONAME | accept > $FIFONAME
-
   rm $FIFONAME
 done
