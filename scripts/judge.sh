@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Disable all proxy
+http_proxy=
+https_proxy=
+HTTP_PROXY=
+HTTPS_PROXY=
+
 SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 DN="$(dirname "$SCRIPT_PATH")"
 cd "${DN}/../"
