@@ -26,7 +26,7 @@ echo "Done"
 
 
 echo "Judging post requests..."
-for i in $(seq 0 40); do
+for i in $(seq 1 40); do
   ./scripts/judge_post.sh
 
   if [[ $? = 1 ]]; then

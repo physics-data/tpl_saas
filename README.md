@@ -39,11 +39,11 @@
 
 本题目评测使用 **随机生成数据** 评测。
 
-你可以使用 `./scripts/grade.sh` 在本地运行评测。发生错误的请求将会被打印出来，如果是 POST 请求，对应的文件将会放置在 `./failed` 目录下。在线评测中你可以从 Artifacts 下载这些文件。
+你可以使用 `./scripts/judge.sh` 在本地运行评测。发生错误的请求将会被打印出来，如果是 POST 请求，对应的文件将会放置在 `./failed` 目录下。在线评测中你可以从 Artifacts 下载这些文件。
 
 执行 `./scripts/grade_boot.sh` 将会自动启动 `./saas.sh`，进行测试，并且自动关闭服务器。GitHub Actions 使用的是这个测试方法。
 
-此外，你也可以使用 `./scripts/judge_get.sh`, `./scripts/judge_post.sh` 和 `./scripts/judge_misc.sh` 进行单次 GET，POST 及其他随机请求的评测。
+此外，你也可以使用 `./scripts/judge_post.sh` 和 `./scripts/judge_misc.sh` 进行单次 POST 或其他随机请求的评测。
 
 本题分数构成为：
 
