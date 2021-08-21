@@ -41,7 +41,7 @@
 
 你可以使用 `./scripts/judge.sh` 在本地运行评测。发生错误的请求将会被打印出来，如果是 POST 请求，对应的文件将会放置在 `./failed` 目录下。在线评测中你可以从 Artifacts 下载这些文件。
 
-执行 `./scripts/grade_boot.sh` 将会自动启动 `./saas.sh`，进行测试，并且自动关闭服务器。GitHub Actions 使用的是这个测试方法。
+执行 `./scripts/grade_boot.sh` 将会自动启动 `./saas.sh`，进行测试，并且自动关闭服务器。GitHub Actions 使用的是这个测试方法。**注意**: 如果你提前结束了 `grade_boot.sh` 的进程，后台启动的服务器可能不会被杀死。请使用 `ps aux|grep bash` 和 `ps aux|grep nc` 来找到并杀死遗留的服务器进程。
 
 此外，你也可以使用 `./scripts/judge_post.sh` 和 `./scripts/judge_misc.sh` 进行单次 POST 或其他随机请求的评测。
 
