@@ -6,13 +6,13 @@ with open('./judge') as j:
     level = int(j.readline())
     if os.isatty(1):
         if level == 0:
-            print("[Black box] 80 pts: All pass")
+            print("[Black box] 80/80 pts: All pass")
         elif level == 1:
-            print("[Black box] 0 pts: Server unresponsive")
+            print("[Black box] 0/80 pts: Server unresponsive")
         elif level == 2:
-            print("[Black box] 40 pts: Status code failed")
+            print("[Black box] 40/80 pts: Status code failed")
         elif level == 3:
-            print("[Black box] 60 pts: Checksum failed")
+            print("[Black box] 60/80 pts: Checksum failed")
     else:
         grade = 0
         if level == 0:
