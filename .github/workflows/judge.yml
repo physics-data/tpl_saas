@@ -10,7 +10,10 @@ jobs:
       - name: Check file existence
         run: test -f ./saas.sh
       - name: Run judger
-        run: ./scripts/judge_boot.sh
+        run: ./scripts/grade_boot.sh
+      - name: Print server log
+        if: always()
+        run: echo "Server logs:" && cat ./server_output
       - name: Upload failed case
         if: always()
         uses: actions/upload-artifact@v2
