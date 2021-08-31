@@ -15,11 +15,12 @@ SHA_PASS=1
 
 echo "Judging misc requests..."
 ./scripts/judge_misc.sh
-if [[ $? = 1 ]]; then
+RET=$?
+if [[ $RET = 1 ]]; then
   echo "Request failed. Did you start the server?"
   echo 1 > ./judge
   exit 1
-elif [[ $? = 2 ]]; then
+elif [[ $RET = 2 ]]; then
   STATUS_PASS=0
 fi
 echo "Done"
@@ -28,13 +29,14 @@ echo "Done"
 echo "Judging post requests..."
 for i in $(seq 1 40); do
   ./scripts/judge_post.sh
+  RET=$?
 
-  if [[ $? = 1 ]]; then
+  if [[ $RET = 1 ]]; then
     echo 1 > ./judge
     exit 1
-  elif [[ $? = 2 ]]; then
+  elif [[ $RET = 2 ]]; then
     STATUS_PASS=0
-  elif [[ $? = 3 ]]; then
+  elif [[ $RET = 3 ]]; then
     SHA_PASS=0
   fi
   echo -n "."

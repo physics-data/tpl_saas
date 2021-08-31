@@ -7,9 +7,9 @@ cd "${DN}/../"
 set -e
 
 function expect() {
-  read -r STATUS
-  echo $STATUS | grep $1 > /dev/null
-  if [[ $? != 0 ]]; then
+  read -r RESP
+  STATUS=$(echo $RESP | cut -d' ' -f2)
+  if [[ $STATUS != "$1" ]]; then
     echo "Expecting status: $1"
     echo "But got status line:"
     echo $STATUS
