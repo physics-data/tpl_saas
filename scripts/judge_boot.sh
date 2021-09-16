@@ -18,8 +18,8 @@ LOG=$(mktemp)
 ./saas.sh >$LOG 2>&1 &
 SERVER_PID=$!
 
-echo "Sleeping 5 secs to wait for the server"
-sleep 5
+echo "Sleeping 1 secs to wait for the server"
+sleep 1
 
 ./scripts/judge.sh
 EXIT_CODE=$?
